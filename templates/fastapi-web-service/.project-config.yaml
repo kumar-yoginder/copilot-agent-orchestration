@@ -1,0 +1,86 @@
+project:
+  name: "AnalyticsAPI"
+  domain: "Web Development"
+  description: "Secure REST API for real-time analytics with JWT auth and WebSockets"
+  version: "1.2.0"
+  created: "2026-05-08"
+
+architect:
+  enabled: true
+  focus_areas:
+    - "RESTful API design with OpenAPI/Swagger documentation"
+    - "Async request handling with FastAPI and async database operations"
+    - "JWT authentication with stateless token management"
+    - "Database-agnostic service layer (SQLAlchemy ORM)"
+    - "Dependency injection for testability and loose coupling"
+  design_principles:
+    - "Single Responsibility Principle (one endpoint handler per resource)"
+    - "Layered architecture (routes → services → models)"
+    - "Dependency injection throughout application"
+    - "Type-safe design using Pydantic and SQLAlchemy"
+
+developer:
+  enabled: true
+  languages:
+    - "Python 3.11"
+    - "SQL (PostgreSQL)"
+  code_style_guide: "PEP 8 + Black formatter (line length 88)"
+  standards:
+    - "Type hints for all functions (mypy --strict mode)"
+    - "FastAPI best practices (path params, query params, dependencies)"
+    - "Pydantic models for request/response validation"
+    - "SQLAlchemy ORM for database abstraction"
+    - "Async/await for all I/O operations"
+    - "Unit tests with >85% coverage"
+    - "Docstrings with Args, Returns, Raises"
+  quality_gates:
+    - "All endpoints auto-documented via OpenAPI"
+    - "No global state or side effects in services"
+    - "Proper HTTP status codes (400, 401, 403, 404, 500)"
+    - "Structured logging without sensitive data"
+    - "Database queries optimized (no N+1 problems)"
+
+security:
+  enabled: true
+  compliance_frameworks:
+    - "OWASP Top 10 (A01: Broken Access Control, A02: Cryptographic Failures)"
+    - "JWT best practices (RS256 signing, short expiration)"
+    - "CORS and CSRF protection"
+  critical_assets:
+    - "JWT signing keys (RSA private keys, strictly protected)"
+    - "Database credentials and connection strings"
+    - "API rate-limiting tokens and session data"
+    - "User authentication tokens and refresh tokens"
+  threat_model: "Prevent unauthorized API access, token hijacking, SQL injection via ORM bypass, XSS in JSON, rate-limit bypass, credential theft"
+  mandatory_checks:
+    - "All endpoints require authentication (except /auth/login and /health)"
+    - "Pydantic models validate all request inputs"
+    - "No raw SQL (use SQLAlchemy ORM only)"
+    - "CORS allows only whitelisted origins"
+    - "Rate limiting enforced (100 req/min per user)"
+    - "Error messages generic (no stack traces or internal details)"
+    - "HTTPS enforced (HTTP redirects to HTTPS)"
+    - "Passwords hashed with bcrypt (minimum 12 rounds)"
+
+memory:
+  enabled: true
+  memory_file: "MEMORIES.md"
+  append_threshold: 10
+  compression_enabled: true
+
+architecture:
+  version: "1.2.0"
+  last_updated: "2026-05-08"
+  components:
+    - "FastAPI ASGI Server (async HTTP)"
+    - "PostgreSQL Database (persistent storage)"
+    - "JWT Authentication (stateless, RS256 signing)"
+    - "Pydantic Models (request/response validation)"
+    - "SQLAlchemy ORM (database abstraction layer)"
+    - "Middleware (CORS, logging, error handling, rate limiting)"
+  data_flow: |
+    HTTP Request → CORS Middleware → FastAPI Router →
+    Dependency Injection (auth, db session) → Handler Function →
+    Service Layer (business logic) → SQLAlchemy ORM →
+    PostgreSQL Database → ORM Response → Pydantic Serialization →
+    JSON HTTP Response

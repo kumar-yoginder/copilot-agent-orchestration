@@ -1,0 +1,91 @@
+# Multi-Agent Project Configuration
+# ================================
+# Customize this file to configure the framework for your project.
+# Replace all {{PLACEHOLDER}} values with your project-specific details.
+
+project:
+  name: "{{PROJECT_NAME}}"
+  domain: "{{PROJECT_DOMAIN}}"
+  description: "{{PROJECT_DESCRIPTION}}"
+  version: "1.0.0"
+  created: "{{DATE}}"
+
+# Architect Agent Configuration
+architect:
+  enabled: true
+  focus_areas:
+    - "{{FOCUS_AREA_1}}"
+    - "{{FOCUS_AREA_2}}"
+    - "{{FOCUS_AREA_3}}"
+  design_principles:
+    - "Single Responsibility Principle"
+    - "DRY (Don't Repeat Yourself)"
+    - "SOLID Principles"
+  integration_patterns:
+    - "{{PATTERN_1}}"
+    - "{{PATTERN_2}}"
+
+# Developer Agent Configuration
+developer:
+  enabled: true
+  languages:
+    - "{{PRIMARY_LANGUAGE}}"
+    - "{{SECONDARY_LANGUAGE}}"
+  code_style_guide: "{{STYLE_GUIDE_REFERENCE}}"
+  standards:
+    - "Consistent indentation ({{INDENT_SIZE}} spaces)"
+    - "Maximum line length: {{MAX_LINE_LENGTH}}"
+    - "Documentation: docstrings + inline comments"
+    - "Type hints: enabled"
+  quality_gates:
+    - "No unused imports or variables"
+    - "All methods documented"
+    - "Test coverage: >{{COVERAGE_TARGET}}%"
+    - "No hardcoded values (use config/constants)"
+
+# Security Agent Configuration
+security:
+  enabled: true
+  compliance_frameworks:
+    - "OWASP Top 10"
+    - "{{ADDITIONAL_COMPLIANCE}}"
+  critical_assets:
+    - "{{ASSET_1}}"
+    - "{{ASSET_2}}"
+  threat_model: "{{THREAT_MODEL_DESCRIPTION}}"
+  mandatory_checks:
+    - "Least Privilege Enforcement"
+    - "Input Validation & Sanitization"
+    - "Authentication/Authorization"
+    - "Sensitive Data Protection"
+    - "Dependency Security"
+
+# Memory Controller Configuration
+memory:
+  enabled: true
+  memory_file: "MEMORIES.md"
+  append_threshold: 10  # Trigger rewrite after 10 appends
+  compression_enabled: true
+  context_flush_instruction: "When chat history exceeds token limit, save context and flush history"
+
+# Architecture Metadata
+architecture:
+  version: "{{ARCHITECTURE_VERSION}}"
+  last_updated: "{{DATE}}"
+  components:
+    - "{{COMPONENT_1}}"
+    - "{{COMPONENT_2}}"
+  data_flow: "{{DATA_FLOW_DESCRIPTION}}"
+
+# Tool Restrictions (Updated for Agent Capabilities)
+tool_restrictions:
+  architect: ['search/codebase']       # Analyzes & designs, doesn't edit code
+  developer: ['edit', 'search/codebase']  # Reads code, then refactors
+  security: ['search/codebase']        # Audits code, reports findings (doesn't fix)
+  memory: ['edit']                     # Updates MEMORIES.md state only
+
+# Customization Notes
+# ==================
+# Use this section to document your project's unique requirements or patterns.
+notes: |
+  {{PROJECT_SPECIFIC_NOTES}}

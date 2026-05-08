@@ -1,0 +1,86 @@
+project:
+  name: "DataLakePipeline"
+  domain: "Data Engineering"
+  description: "ETL pipeline ingesting data from S3 to Snowflake with quality checks"
+  version: "2.1.0"
+  created: "2026-05-08"
+
+architect:
+  enabled: true
+  focus_areas:
+    - "Modular extraction, transformation, and loading stages"
+    - "Scalable job scheduling with Airflow or Dagster"
+    - "Data quality gates before warehouse load"
+    - "Cost optimization for cloud storage and compute"
+  design_principles:
+    - "Each stage is independent and unit testable"
+    - "Configuration-driven pipelines (no hardcoding)"
+    - "Graceful error handling with exponential backoff retries"
+    - "Comprehensive logging at every step"
+
+developer:
+  enabled: true
+  languages:
+    - "Python 3.11"
+    - "SQL"
+  code_style_guide: "PEP 8 + Black formatter (line length 88)"
+  standards:
+    - "Type hints for all functions (mypy strict mode)"
+    - "Unit tests for transformations (>90% coverage required)"
+    - "Docstrings with Args, Returns, Raises for all public functions"
+    - "No hardcoded values (use environment variables or config files)"
+    - "Async patterns (asyncio) for I/O-bound operations"
+  quality_gates:
+    - "No unused imports or variables"
+    - "All methods documented"
+    - "Test coverage: >90% for transformation logic"
+    - "Linting: pylint score >9.0"
+    - "Type checking: mypy --strict passes"
+
+security:
+  enabled: true
+  compliance_frameworks:
+    - "OWASP Top 10"
+    - "Data Privacy (GDPR - no PII in logs)"
+    - "AWS/GCP security best practices"
+  critical_assets:
+    - "AWS S3 credentials and bucket contents"
+    - "Snowflake connection strings and secrets"
+    - "API keys for external data sources"
+    - "Database passwords and connection strings"
+  threat_model: "Prevent data exfiltration, SQL injection in transformations, unauthorized access to credentials, data corruption during pipeline execution"
+  mandatory_checks:
+    - "SQL injection prevention (use parameterized queries only)"
+    - "Secrets never hardcoded (validate environment variables at startup)"
+    - "Credentials rotation policy (90-day cycle)"
+    - "Audit logs for all data access and modifications"
+    - "PII detection in data before loading to warehouse"
+
+memory:
+  enabled: true
+  memory_file: "MEMORIES.md"
+  append_threshold: 10
+  compression_enabled: true
+
+architecture:
+  version: "2.1.0"
+  last_updated: "2026-05-08"
+  components:
+    - "Extraction Layer (S3, REST APIs, SQL Databases)"
+    - "Transformation Layer (Validation, Cleaning, Enrichment)"
+    - "Loading Layer (Snowflake/BigQuery warehouse)"
+    - "Quality Layer (Data integrity checks, monitoring)"
+    - "Orchestration (Airflow or Dagster scheduling)"
+  data_flow: |
+    Source Systems → Extract (raw data) → Validate (schema/PII checks) →
+    Transform (clean/enrich) → Validate again → Load to Warehouse →
+    Monitor (data freshness, quality metrics)
+
+# Customization Notes
+notes: |
+  This pipeline is designed for batch ETL workloads.
+  Key considerations:
+  - All credentials use AWS Secrets Manager or environment variables
+  - Incremental loads preferred to reduce Snowflake costs
+  - Data quality checks catch PII and injection attempts before loading
+  - Comprehensive logging for troubleshooting without exposing sensitive data
