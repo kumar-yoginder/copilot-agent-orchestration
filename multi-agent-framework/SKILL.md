@@ -56,6 +56,7 @@ See `references/SETUP.md` for:
 - Configuration (`.project-config.yaml`)
 - Agent customization for your domain
 - Agent activation and usage
+- Startup prompt for automatic placeholder replacement
 - Best practices and typical workflows
 
 ### **Step 3: Invoke Agents**
@@ -70,6 +71,7 @@ Work with agents in Copilot Chat:
 ### **Step 4: Consult References**
 Each reference file has a "When to load" callout:
 - **SETUP.md** — Setting up the framework
+- **RELEASE.md** — Downloading and installing release bundle into existing projects
 - **CUSTOMIZATION.md** — Adapting for your domain
 - **AGENTS.md** — Understanding agent workflows
 - **NAMING_CONVENTIONS.md** — Naming files and code
@@ -250,6 +252,7 @@ Each reference file includes a "When to load" callout. Read only what you need:
 | File | When to Load | Key Content |
 |------|---|---|
 | **SETUP.md** | Initializing framework for new project | 6-step setup, configuration, activation |
+| **RELEASE.md** | Installing from downloadable release | Copy/paste steps + startup prompt for placeholder replacement |
 | **CUSTOMIZATION.md** | Adapting for specific domain | 4 detailed examples (Python ETL, FastAPI, K8s, ML), placeholders |
 | **AGENTS.md** | Understanding agents & workflows | Roles, tools, interaction patterns, best practices |
 | **NAMING_CONVENTIONS.md** | Naming new files/code | Directory patterns, language-specific rules, anti-patterns |

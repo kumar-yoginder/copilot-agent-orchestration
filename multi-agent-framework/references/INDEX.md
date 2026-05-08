@@ -19,6 +19,7 @@ multi-agent-framework/
 │
 ├── references/                    # Reference documentation (on-demand loading)
 │   ├── SETUP.md                   # Quick start guide
+│   ├── RELEASE.md                 # Release download + copy/paste integration
 │   ├── CUSTOMIZATION.md           # Domain adaptation guide
 │   ├── AGENTS.md                  # Agent specifications & interaction patterns
 │   ├── NAMING_CONVENTIONS.md      # Naming standards (authority: @architect)
@@ -31,8 +32,8 @@ multi-agent-framework/
 ├── assets/                        # Static files (for future use)
 │   └── (empty for now)
 │
-├── scripts/                       # Helper scripts (for future use)
-│   └── (empty for now)
+├── scripts/                       # Helper scripts
+│   └── build_release_bundle.py    # Creates downloadable release zip
 │
 └── templates/                     # Example projects (outside skill)
     ├── python-data-pipeline/      # ETL/Data Engineering example
@@ -89,7 +90,7 @@ All agent files are in the `agents/` directory with detailed role descriptions, 
 
 ---
 
-## 📚 Reference Files (9 total)
+## 📚 Reference Files (10 total)
 
 All reference files are in the `references/` directory and include "When to load" callouts.
 
@@ -98,6 +99,7 @@ All reference files are in the `references/` directory and include "When to load
 | File | Purpose | Load When | Content |
 |------|---------|-----------|---------|
 | **SETUP.md** | Quick start guide | Setting up framework for new project | Prerequisites, file copying, configuration steps, agent activation, best practices |
+| **RELEASE.md** | Release installation guide | Installing from downloadable release zip | Release download steps, copy/paste setup, startup placeholder prompt |
 | **CUSTOMIZATION.md** | Domain adaptation guide | Adapting framework for specific domain | Placeholder reference, 4 examples (Python ETL, FastAPI, K8s, ML), customization checklist |
 
 ### Agent & Workflow Documentation
@@ -208,7 +210,7 @@ Invoke agents in Copilot Chat:
 |--------|-------|-------|
 | **Agents** | 4 | Architect, Developer, Security, Memory |
 | **Agent Files** | 4 | One per agent in `agents/` |
-| **Reference Files** | 9 | All in `references/` with "When to load" callouts |
+| **Reference Files** | 10 | All in `references/` with "When to load" callouts |
 | **Example Projects** | 2 | Python ETL, FastAPI |
 | **Folders** | 5 | agents/, references/, assets/, scripts/, templates/ |
 | **Total Files** | 15+ | Skill core files + templates |
