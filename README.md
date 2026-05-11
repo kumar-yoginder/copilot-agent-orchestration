@@ -63,9 +63,10 @@ This framework provides four specialized agents that work together to manage sof
 
 1. **Read the skill overview** — See [multi-agent-framework/SKILL.md](multi-agent-framework/SKILL.md)
 2. **Follow setup guide** — See [multi-agent-framework/references/SETUP.md](multi-agent-framework/references/SETUP.md)
-3. **Customize configuration** — Edit `.project-config.yaml` with your project details
-4. **Initialize project memory** — Copy from [multi-agent-framework/references/MEMORY_TEMPLATE.md](multi-agent-framework/references/MEMORY_TEMPLATE.md)
-5. **Invoke agents in Copilot Chat** — Use `@architect`, `@developer`, `@security`, `@memory-controller`
+3. **Download release bundle** — Use `copilot-agent-framework-<version>.zip` from Releases
+4. **Copy into existing project** — See [multi-agent-framework/references/RELEASE.md](multi-agent-framework/references/RELEASE.md)
+5. **Auto-fill placeholders** — Run the startup prompt from [multi-agent-framework/references/RELEASE.md](multi-agent-framework/references/RELEASE.md)
+6. **Invoke agents in Copilot Chat** — Use `@architect`, `@developer`, `@security`, `@memory-controller`
 
 ---
 
@@ -98,6 +99,7 @@ All documentation is in `multi-agent-framework/references/` with "When to load" 
 |------|---------|-----------|
 | **SKILL.md** | Skill entrypoint | Activating the skill in Copilot Chat |
 | **SETUP.md** | Setup guide | Initializing for a new project |
+| **RELEASE.md** | Release install guide | Downloading bundle and copy/paste into existing projects |
 | **AGENTS.md** | Agent specs | Understanding agent workflows |
 | **CUSTOMIZATION.md** | Domain examples | Adapting for specific domains |
 | **NAMING_CONVENTIONS.md** | Naming standards | Creating new files/code |
@@ -118,7 +120,7 @@ All documentation is in `multi-agent-framework/references/` with "When to load" 
 - ✅ Check naming conventions
 - ✅ Follow directory structure guidelines
 - ✅ Update this README.md with feature entry
-- ✅ Log to docs/MEMORIES.md via @memory-controller
+- ✅ Log to `MEMORIES.md` via @memory-controller
 
 ---
 
@@ -228,10 +230,11 @@ The **Memory Controller** maintains `MEMORIES.md` with:
 
 ## 📚 Documentation
 
-- **[docs/SETUP.md](docs/SETUP.md)** — Initialize the framework for a new project
-- **[docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md)** — Adapt agents for your domain
-- **[docs/AGENTS.md](docs/AGENTS.md)** — Detailed agent roles and interaction patterns
-- **[docs/INDEX.md](docs/INDEX.md)** — Complete file reference and navigation
+- **[multi-agent-framework/references/SETUP.md](multi-agent-framework/references/SETUP.md)** — Initialize the framework for a new project
+- **[multi-agent-framework/references/RELEASE.md](multi-agent-framework/references/RELEASE.md)** — Downloadable release + direct copy/paste setup
+- **[multi-agent-framework/references/CUSTOMIZATION.md](multi-agent-framework/references/CUSTOMIZATION.md)** — Adapt agents for your domain
+- **[multi-agent-framework/references/AGENTS.md](multi-agent-framework/references/AGENTS.md)** — Detailed agent roles and interaction patterns
+- **[multi-agent-framework/references/INDEX.md](multi-agent-framework/references/INDEX.md)** — Complete file reference and navigation
 - **[.project-config.yaml](.project-config.yaml)** — Configuration reference
 
 ---
@@ -256,7 +259,7 @@ This framework is **100% generic**. Customize it for:
 - **Mobile Apps** (iOS, Android)
 - **Any other domain**
 
-See [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md) for step-by-step guidance.
+See [multi-agent-framework/references/CUSTOMIZATION.md](multi-agent-framework/references/CUSTOMIZATION.md) for step-by-step guidance.
 
 ---
 
@@ -287,10 +290,10 @@ See [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md) for step-by-step guidance.
 A: This framework is designed for GitHub Copilot Chat (VS Code). Agents can be adapted for other chat interfaces.
 
 **Q: How do I customize agents for my project?**  
-A: Edit `.project-config.yaml` and replace placeholders in agent files. See [docs/CUSTOMIZATION.md](docs/CUSTOMIZATION.md).
+A: Edit `.project-config.yaml` and replace placeholders in agent files. You can use the startup prompt in [multi-agent-framework/references/RELEASE.md](multi-agent-framework/references/RELEASE.md) for bulk replacement.
 
 **Q: What happens to MEMORIES.md?**  
-A: It's auto-populated by the memory-controller agent. Initialize it from [docs/MEMORY_TEMPLATE.md](docs/MEMORY_TEMPLATE.md).
+A: It's auto-populated by the memory-controller agent. Initialize it from [multi-agent-framework/references/MEMORY_TEMPLATE.md](multi-agent-framework/references/MEMORY_TEMPLATE.md).
 
 **Q: Can agents work in parallel?**  
 A: Yes! However, all changes should be logged via memory-controller to maintain consistency.

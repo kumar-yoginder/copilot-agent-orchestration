@@ -1,0 +1,45 @@
+name: Release Bundle
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version label for the bundle file name"
+        required: true
+        default: "manual"
+
+permissions:
+  contents: write
+
+jobs:
+  build-release-bundle:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_VERSION: ${{ github.event_name == 'workflow_dispatch' && inputs.version || github.ref_name }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          # Keep runtime aligned with framework examples and script compatibility.
+          python-version: "3.11"
+
+      - name: Build release bundle
+        run: python scripts/build_release_bundle.py --version "${BUNDLE_VERSION}"
+
+      - name: Upload bundle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: copilot-agent-framework-${{ env.BUNDLE_VERSION }}
+          path: dist/copilot-agent-framework-${{ env.BUNDLE_VERSION }}.zip
+
+      - name: Publish GitHub release asset
+        if: github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/copilot-agent-framework-${{ env.BUNDLE_VERSION }}.zip

@@ -19,6 +19,7 @@ multi-agent-framework/
 │
 ├── references/                    # Reference documentation (on-demand loading)
 │   ├── SETUP.md                   # Quick start guide
+│   ├── RELEASE.md                 # Release download + copy/paste integration
 │   ├── CUSTOMIZATION.md           # Domain adaptation guide
 │   ├── AGENTS.md                  # Agent specifications & interaction patterns
 │   ├── NAMING_CONVENTIONS.md      # Naming standards (authority: @architect)
@@ -29,9 +30,6 @@ multi-agent-framework/
 │   └── MEMORIES.md                # Framework state log
 │
 ├── assets/                        # Static files (for future use)
-│   └── (empty for now)
-│
-├── scripts/                       # Helper scripts (for future use)
 │   └── (empty for now)
 │
 └── templates/                     # Example projects (outside skill)
@@ -89,7 +87,7 @@ All agent files are in the `agents/` directory with detailed role descriptions, 
 
 ---
 
-## 📚 Reference Files (9 total)
+## 📚 Reference Files (10 total)
 
 All reference files are in the `references/` directory and include "When to load" callouts.
 
@@ -98,6 +96,7 @@ All reference files are in the `references/` directory and include "When to load
 | File | Purpose | Load When | Content |
 |------|---------|-----------|---------|
 | **SETUP.md** | Quick start guide | Setting up framework for new project | Prerequisites, file copying, configuration steps, agent activation, best practices |
+| **RELEASE.md** | Release installation guide | Installing from downloadable release zip | Release download steps, copy/paste setup, startup placeholder prompt |
 | **CUSTOMIZATION.md** | Domain adaptation guide | Adapting framework for specific domain | Placeholder reference, 4 examples (Python ETL, FastAPI, K8s, ML), customization checklist |
 
 ### Agent & Workflow Documentation
@@ -208,7 +207,7 @@ Invoke agents in Copilot Chat:
 |--------|-------|-------|
 | **Agents** | 4 | Architect, Developer, Security, Memory |
 | **Agent Files** | 4 | One per agent in `agents/` |
-| **Reference Files** | 9 | All in `references/` with "When to load" callouts |
+| **Reference Files** | 10 | All in `references/` with "When to load" callouts |
 | **Example Projects** | 2 | Python ETL, FastAPI |
 | **Folders** | 5 | agents/, references/, assets/, scripts/, templates/ |
 | **Total Files** | 15+ | Skill core files + templates |
@@ -219,11 +218,11 @@ Invoke agents in Copilot Chat:
 
 - [x] `SKILL.md` exists at skill root with YAML frontmatter
 - [x] 4 agent files in `agents/` folder (architect, developer, security, memory)
-- [x] 9 reference files in `references/` folder with "When to load" callouts
+- [x] 10 reference files in `references/` folder with "When to load" callouts
 - [x] Agent files have: Role, Responsibilities, Tools, Output format
 - [x] Reference files organized by purpose (setup, agents, standards, state)
 - [x] `assets/` folder exists (empty, ready for templates)
-- [x] `scripts/` folder exists (empty, ready for helpers)
+- [x] Root `scripts/` folder includes helper automation (`build_release_bundle.py`)
 - [x] All internal paths use `references/` (not `docs/`)
 - [x] Clear separation: agents (pure instruction) vs. references (on-demand docs)
 - [x] Canonical skill layout fully implemented

@@ -12,21 +12,25 @@
 
 ---
 
-## ✅ Step 1: Copy Framework Files
+## ✅ Step 1: Download and Extract Release Bundle
 
-Copy all files from this framework to your project root:
+Download `copilot-agent-framework-<version>.zip` from Releases and extract it.
+
+Then copy these files/folders into your existing project root:
 
 ```
-your-project/
+your-existing-project/
 ├── .project-config.yaml
 ├── MEMORIES.md
-├── README.md
-├── agents/
-│   ├── architect.md
-│   ├── developer.md
-│   ├── memory.md
-│   └── security.md
-└── your-existing-code/
+├── multi-agent-framework/
+│   ├── SKILL.md
+│   ├── agents/
+│   │   ├── architect.md
+│   │   ├── developer.md
+│   │   ├── memory.md
+│   │   └── security.md
+│   └── references/
+└── ...your-existing-code...
 ```
 
 ---
@@ -71,7 +75,7 @@ security:
 
 ## 📝 Step 3: Initialize `MEMORIES.md`
 
-Copy `references/MEMORY_TEMPLATE.md` to `MEMORIES.md` and customize:
+Use `multi-agent-framework/references/MEMORY_TEMPLATE.md` as the base for `MEMORIES.md` and customize:
 
 ```markdown
 # MyAwesomeProject — Project Memory Log
@@ -92,39 +96,28 @@ Copy `references/MEMORY_TEMPLATE.md` to `MEMORIES.md` and customize:
 
 ---
 
-## 🎯 Step 4: Customize Agent Files (Optional)
+## 🎯 Step 4: Auto-Fill Placeholders in Skill + Agents
 
-Agent files work with placeholders. Replace `{{PLACEHOLDER}}` values:
+In Copilot Chat, paste this startup prompt to replace placeholders automatically:
 
-### In `agents/architect.md`:
-```markdown
-## Domain Context
-- **Project:** MyAwesomeProject
-- **Domain:** Web Development
-- **Key Focus Areas:** API design, database schema, security
-```
+```text
+Use .project-config.yaml as the single source of truth and replace all {{PLACEHOLDER}} values across:
+- multi-agent-framework/SKILL.md
+- multi-agent-framework/agents/*.md
+- multi-agent-framework/references/*.md (only where placeholders exist)
 
-### In `agents/developer.md`:
-```markdown
-## Domain Context
-- **Project:** MyAwesomeProject
-- **Primary Languages:** Python 3.11, SQL
-- **Code Standards:** PEP 8, Black formatter, Type hints
-```
-
-### In `agents/security.md`:
-```markdown
-## Domain Context
-- **Project:** MyAwesomeProject
-- **Compliance Frameworks:** OWASP Top 10, NIST Cybersecurity
-- **Critical Assets:** API tokens, user credentials, database
+Rules:
+1) Do not change tool lists, role boundaries, or file structure.
+2) Keep markdown formatting intact.
+3) If a value is missing, ask me once with a short list of missing keys.
+4) After replacement, give me a summary table: file, placeholders replaced, placeholders still pending.
 ```
 
 ---
 
 ## 🚀 Step 5: Activate Agents in Copilot Chat
 
-In VS Code Copilot Chat, agents are available via `@agent-name`:
+In VS Code Copilot Chat, agents are available via `@agent-name` after placeholder replacement:
 
 ```
 @architect: Design a user authentication module for our API.
