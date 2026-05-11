@@ -25,7 +25,11 @@ def parse_args() -> argparse.Namespace:
 
 
 def copy_required_files(repo_root: Path, bundle_root: Path) -> None:
-    shutil.copytree(repo_root / "multi-agent-framework", bundle_root / "multi-agent-framework")
+    shutil.copytree(
+        repo_root / "multi-agent-framework",
+        bundle_root / "multi-agent-framework",
+        dirs_exist_ok=True,
+    )
     shutil.copy2(repo_root / ".project-config.yaml", bundle_root / ".project-config.yaml")
     shutil.copy2(
         repo_root / "multi-agent-framework" / "references" / "MEMORY_TEMPLATE.md",

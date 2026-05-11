@@ -26,6 +26,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
+          # Keep runtime aligned with framework examples and script compatibility.
           python-version: "3.11"
 
       - name: Build release bundle
