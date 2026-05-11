@@ -222,7 +222,7 @@ Invoke agents in Copilot Chat:
 - [x] Agent files have: Role, Responsibilities, Tools, Output format
 - [x] Reference files organized by purpose (setup, agents, standards, state)
 - [x] `assets/` folder exists (empty, ready for templates)
-- [ ] `scripts/` folder exists (empty, ready for helpers)
+- [x] Root `scripts/` folder includes helper automation (`build_release_bundle.py`)
 - [x] All internal paths use `references/` (not `docs/`)
 - [x] Clear separation: agents (pure instruction) vs. references (on-demand docs)
 - [x] Canonical skill layout fully implemented

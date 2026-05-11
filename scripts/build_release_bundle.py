@@ -38,6 +38,8 @@ def copy_required_files(repo_root: Path, bundle_root: Path) -> None:
 
 
 def write_zip(source_dir: Path, target_zip: Path) -> None:
+    # Keep the top-level `copilot-agent-framework/` folder in the archive so users
+    # can extract and copy the complete bundle into an existing project.
     with ZipFile(target_zip, "w", compression=ZIP_DEFLATED) as archive:
         for file_path in sorted(source_dir.rglob("*")):
             if file_path.is_file():
