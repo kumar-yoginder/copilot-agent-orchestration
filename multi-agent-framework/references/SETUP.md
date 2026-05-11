@@ -75,7 +75,7 @@ security:
 
 ## 📝 Step 3: Initialize `MEMORIES.md`
 
-Copy `references/MEMORY_TEMPLATE.md` to `MEMORIES.md` and customize:
+Use `multi-agent-framework/references/MEMORY_TEMPLATE.md` as the base for `MEMORIES.md` and customize:
 
 ```markdown
 # MyAwesomeProject — Project Memory Log

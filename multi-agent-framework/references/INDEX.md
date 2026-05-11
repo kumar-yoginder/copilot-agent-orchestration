@@ -32,9 +32,6 @@ multi-agent-framework/
 ├── assets/                        # Static files (for future use)
 │   └── (empty for now)
 │
-├── scripts/                       # Helper scripts
-│   └── build_release_bundle.py    # Creates downloadable release zip
-│
 └── templates/                     # Example projects (outside skill)
     ├── python-data-pipeline/      # ETL/Data Engineering example
     └── fastapi-web-service/       # REST API example
@@ -221,11 +218,11 @@ Invoke agents in Copilot Chat:
 
 - [x] `SKILL.md` exists at skill root with YAML frontmatter
 - [x] 4 agent files in `agents/` folder (architect, developer, security, memory)
-- [x] 9 reference files in `references/` folder with "When to load" callouts
+- [x] 10 reference files in `references/` folder with "When to load" callouts
 - [x] Agent files have: Role, Responsibilities, Tools, Output format
 - [x] Reference files organized by purpose (setup, agents, standards, state)
 - [x] `assets/` folder exists (empty, ready for templates)
-- [x] `scripts/` folder exists (empty, ready for helpers)
+- [ ] `scripts/` folder exists (empty, ready for helpers)
 - [x] All internal paths use `references/` (not `docs/`)
 - [x] Clear separation: agents (pure instruction) vs. references (on-demand docs)
 - [x] Canonical skill layout fully implemented

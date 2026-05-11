@@ -66,3 +66,10 @@ After placeholders are filled:
 @memory-controller: Append all outcomes to MEMORIES.md.
 ```
 
+---
+
+## 5) (Maintainers) Publish a new release bundle
+
+1. Create and push a version tag like `v1.0.1`.
+2. GitHub Actions runs `.github/workflows/release-bundle.yml`.
+3. The workflow uploads `copilot-agent-framework-v1.0.1.zip` to the GitHub Release.

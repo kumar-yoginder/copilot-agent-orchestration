@@ -120,7 +120,7 @@ All documentation is in `multi-agent-framework/references/` with "When to load" 
 - ✅ Check naming conventions
 - ✅ Follow directory structure guidelines
 - ✅ Update this README.md with feature entry
-- ✅ Log to docs/MEMORIES.md via @memory-controller
+- ✅ Log to `MEMORIES.md` via @memory-controller
 
 ---
 
