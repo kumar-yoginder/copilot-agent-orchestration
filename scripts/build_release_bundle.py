@@ -37,6 +37,19 @@ def copy_required_files(repo_root: Path, bundle_root: Path) -> None:
     )
 
 
+def validate_required_paths(repo_root: Path) -> None:
+    required_paths = [
+        repo_root / "multi-agent-framework",
+        repo_root / ".project-config.yaml",
+        repo_root / "multi-agent-framework" / "references" / "MEMORY_TEMPLATE.md",
+        repo_root / "multi-agent-framework" / "references" / "RELEASE.md",
+    ]
+    missing = [str(path) for path in required_paths if not path.exists()]
+    if missing:
+        missing_list = "\n".join(f"- {item}" for item in missing)
+        raise SystemExit(f"Missing required files/directories:\n{missing_list}")
+
+
 def write_zip(source_dir: Path, target_zip: Path) -> None:
     # Keep the top-level `copilot-agent-framework/` folder in the archive so users
     # can extract and copy the complete bundle into an existing project.
@@ -49,6 +62,7 @@ def write_zip(source_dir: Path, target_zip: Path) -> None:
 def main() -> None:
     args = parse_args()
     repo_root = Path(__file__).resolve().parents[1]
+    validate_required_paths(repo_root)
     output_dir = repo_root / args.output_dir
     work_dir = output_dir / "release-work"
     bundle_name = "copilot-agent-framework"
